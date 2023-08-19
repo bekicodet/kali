@@ -1,0 +1,59 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Portfolio Apps</title>
+<link rel="stylesheet" href="{% static 'portfolio/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'portfolio/jquery.fancybox.css' %}">
+<link rel="stylesheet" href="{% static 'portfolio/main.css' %}">
+<link rel="stylesheet" href="{% static 'portfolio/responsive.css' %}">
+<link rel="stylesheet" href="{% static 'portfolio/animate.min.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<!-- Header Section -->
+<section class="banner" role="banner">
+  <!-- Navigation Section -->
+  <header id="header">
+    <div class="header-content clearfix"> <a class="logo" href="#">Beki_Code</a>
+      <nav class="navigation" role="navigation">
+        <ul class="primary-nav">
+          <li><a href="{% url 'about' %}">About Me</a></li>
+          <li><a href="{% url 'work' %}">My Works</a></li>
+          <li><a href="{% url 'contact' %}">Contact Me</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="nav-toggle">Menu<span></span></a>
+    </div>
+  </header>
+  <!-- Navigation Section --> 
+  <!-- Banner Section -->
+  {% for portfolio in portfolios %}
+  <div class="container">
+    <div class="col-md-7 banner-inner-wrapper">
+      <div class="banner-text"> 
+  <img style="max-width: 30%; max-height: 30%; " src="  {% static 'portfolio/beki.jpg' %}">
+
+        <h1>{{ portfolio.name }}</h1>
+        <p>{{ portfolio.description }}</p>
+        <a href="#" class="btn">{{ portfolio.technology }}</a> </div>
+        
+      <!-- banner text --> 
+    </div>
+  </div>
+  {% endfor %}
+  <!-- Banner Section --> 
+</section>
+<!-- JS FILES --> 
+<script src="{% static 'portfolio/jquery.min.js' %}"></script> 
+<script src="{% static 'portfolio/bootstrap.min.js' %}"></script> 
+<script src="{% static 'portfolio/jquery.fancybox.pack.js' %}"></script> 
+<script src="{% static 'portfolio/retina.min.js' %}"></script> 
+<script src="{% static 'portfolio/modernizr.js' %}"></script> 
+<script src="{% static 'portfolio/main.js' %}"></script>
+</body>
+</html>
